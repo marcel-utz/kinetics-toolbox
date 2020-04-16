@@ -19,7 +19,7 @@
 
 
 
-Print["Kinetics Toolbox v0.0.2\n(c)2018 Marcel Utz"]
+Print["Kinetics Toolbox v1.0.0-beta\n(c)2018-2020 Marcel Utz"]
 
 
 Format[Reaction[A_-> B_,k_]] := Infix[f[A,B],Labeled["\[LongRightArrow]",k,{Top}]]
@@ -78,6 +78,10 @@ Join[conds,Table[k[0]==0,{k,v}]]
 
 
 RegionIndices[vars_List,subs_Symbol] := Table[ s->Subscript[s,subs],{s,vars}]
+
+
+RegionTransports[vars_List,\[Alpha]_,\[Beta]_,k1_,k2_] := 
+Table[ Transport[ Subscript[s,\[Alpha]]-> Subscript[s,\[Beta]],k1,k2],{s,vars}]
 
 
 
